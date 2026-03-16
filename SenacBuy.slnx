@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SenacBuy.API/SenacBuy.API.csproj" Id="48c9a185-8e21-4db4-826b-11890649a57b" />
+  <Project Path="SenacBuy.Application/SenacBuy.Application.csproj" />
+  <Project Path="SenacBuy.Domain/SenacBuy.Domain.csproj" />
+  <Project Path="SenacBuy.Infrastructure/SenacBuy.Infrastructure.csproj" Id="b2614571-b972-4f4b-ac2b-90d2b2ab1ddc" />
+</Solution>
