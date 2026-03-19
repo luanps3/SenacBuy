@@ -1,10 +1,25 @@
 using Microsoft.EntityFrameworkCore;
+using SenacBuy.Application.Services;
+using SenacBuy.Domain.Interfaces;
 using SenacBuy.Infrastructure.Data;
+using SenacBuy.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<SenacBuyDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Registro dos repositórios  (Insfrastructure implementa Domain)
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+
+// Registro dos services (Application)
+builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<ProdutoService>();
+builder.Services.AddScoped<PedidoService>();
 
 builder.Services.AddCors(options =>
 {
@@ -31,7 +46,13 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-app.UseCors("PermitirTudo");
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<SenacBuyDbContext>();
+    await DatabaseSeeder.SeedAsync(db);
+}
+
+    app.UseCors("PermitirTudo");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

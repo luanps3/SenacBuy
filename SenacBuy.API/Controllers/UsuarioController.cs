@@ -95,9 +95,4 @@ public class UsuarioController : ControllerBase
         return Ok(usuarioAtualizado);
 
     }
-
-
-
-
-
 }
