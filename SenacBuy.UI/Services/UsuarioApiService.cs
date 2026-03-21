@@ -22,7 +22,8 @@ namespace SenacBuy.UI.Services
             }
             catch (HttpRequestException ex)
             {
-                MessageBox.Show($"Não foi possivel conectar à API. \nVerifique se a API está rodando em {ApiClientService.ApiBaseUrl}\n\nDetalhes: {ex.Message}");
+                MessageBox.Show($"Não foi possivel conectar à API. \nVerifique se a API está rodando em {ApiClientService.ApiBaseUrl}\n\nDetalhes: {ex.Message}","Erro de conexão",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 
