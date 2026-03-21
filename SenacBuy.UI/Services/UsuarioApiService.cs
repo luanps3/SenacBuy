@@ -25,6 +25,11 @@ namespace SenacBuy.UI.Services
                 MessageBox.Show($"Não foi possivel conectar à API. \nVerifique se a API está rodando em {ApiClientService.ApiBaseUrl}\n\nDetalhes: {ex.Message}","Erro de conexão",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro inesperado no login: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
 
