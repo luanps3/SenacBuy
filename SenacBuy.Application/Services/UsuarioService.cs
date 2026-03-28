@@ -42,7 +42,7 @@ public class UsuarioService
         }
 
         // 2. Gera o hash da senha fornecida e compara com o hash armazenado
-        var senhaHashFornecida = GerarHash(loginDto.Senha);
+        var     senhaHashFornecida = GerarHash(loginDto.Senha);
         if (usuario.SenhaHash != senhaHashFornecida)
         {
             return new LoginResponseDto

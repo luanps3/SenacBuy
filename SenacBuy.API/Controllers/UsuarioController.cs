@@ -5,6 +5,8 @@ using SenacBuy.Application.Services;
 
 namespace SenacBuy.API.Controllers;
 
+[ApiController]
+[Route("api/[controller]")]
 public class UsuarioController : ControllerBase
 {
     private readonly UsuarioService _usuarioService;
