@@ -66,7 +66,7 @@
             btnEntrar.Size = new Size(191, 45);
             btnEntrar.TabIndex = 1;
             btnEntrar.Text = "Entrar";
-            btnEntrar.Click += this.btnEntrar_Click;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // txtEmail
             // 
@@ -166,6 +166,7 @@
             lklCadastrar.TabIndex = 5;
             lklCadastrar.TabStop = true;
             lklCadastrar.Text = "Não tem uma conta? Cadastre-se";
+            lklCadastrar.LinkClicked += lklCadastrar_LinkClicked;
             // 
             // guna2HtmlLabel2
             // 

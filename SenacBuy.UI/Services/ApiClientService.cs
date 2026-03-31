@@ -7,7 +7,7 @@ namespace SenacBuy.UI.Services
 {
     public static class ApiClientService
     {
-        public const string ApiBaseUrl = "https://localhost:7006";
+        public const string ApiBaseUrl = "http://localhost:5156";
 
         private static readonly HttpClient _httpClient = CriarHttpClient();
 

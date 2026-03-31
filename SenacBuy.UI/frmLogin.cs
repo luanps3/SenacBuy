@@ -58,5 +58,11 @@ namespace SenacBuy.UI
 
 
         }
+
+        private void lklCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmCadastroUsuario form = new();
+            form.ShowDialog();
+        }
     }
 }
