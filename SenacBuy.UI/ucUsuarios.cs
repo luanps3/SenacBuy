@@ -22,10 +22,37 @@ namespace SenacBuy.UI
         public ucUsuarios()
         {
             InitializeComponent(); // Inicializa componentes gerados pelo Designer
-   
+            ConfigurarInterface(); // Configura colunas do DataGridView e tamanho das linhas
+
+
+        }
+
+        private void ConfigurarInterface()
+        {
+            // Aumenta altura da linha para acomodar imagens de perfil
+            dgvUsuarios.RowTemplate.Height = 50;
+
+            // Adiciona coluna de imagem para foto do usuário
+            dgvUsuarios.Columns.Add(new DataGridViewImageColumn
+            {
+                Name = "colFoto",
+                HeaderText = "Foto",
+                ImageLayout = DataGridViewImageCellLayout.Zoom,
+                FillWeight = 40
+            });
+
+            // Colunas adicionais: ID, Nome, E-mail
+            dgvUsuarios.Columns.Add("colId", "ID");
+            dgvUsuarios.Columns.Add("colNome", "Nome");
+            dgvUsuarios.Columns.Add("colEmail", "E-mail");
+
+            // Ajusta preenchimento proporcional de colunas para melhor visualização
+            dgvUsuarios.Columns["colId"]!.FillWeight = 30;
+            dgvUsuarios.Columns["colNome"]!.FillWeight = 200;
+            dgvUsuarios.Columns["colEmail"]!.FillWeight = 200;
         }
 
         // Configura colunas do DataGridView e tamanho das linhas
-       
+
     }
 }

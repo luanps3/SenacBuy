@@ -55,7 +55,22 @@ namespace SenacBuy.UI.Services
             }
         }
 
-
+        public async Task<List<UsuarioDto>> ListarUsuariosAsync()
+        {
+            try
+            {
+                var lista = await _http.GetFromJsonAsync<List<UsuarioDto>>("api/usuario");
+                return lista ?? new List<UsuarioDto>();
+            }
+            catch (HttpRequestException erro)
+            {
+                MessageBox.Show($"Sem conexão com a API: {erro.Message}",
+                    "Erro de conexão", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                return new List<UsuarioDto>();
+            }
+        }
 
 
 
