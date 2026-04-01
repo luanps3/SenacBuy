@@ -41,9 +41,9 @@ namespace SenacBuy.UI
             // panelHeader
             // 
             panelHeader.BackColor = Color.White;
+            panelHeader.Controls.Add(txtBuscaUsuario);
             panelHeader.Controls.Add(lblTitulo);
             panelHeader.Controls.Add(lblSubtitulo);
-            panelHeader.Controls.Add(txtBuscaUsuario);
             panelHeader.Controls.Add(btnNovoUsuario);
             panelHeader.Controls.Add(btnEditarUsuario);
             panelHeader.Controls.Add(btnExcluirUsuario);
@@ -51,14 +51,14 @@ namespace SenacBuy.UI
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
             panelHeader.Padding = new Padding(25, 0, 25, 0);
-            panelHeader.Size = new Size(1060, 80);
+            panelHeader.Size = new Size(807, 80);
             panelHeader.TabIndex = 1;
             // 
             // lblTitulo
             // 
             lblTitulo.Font = new Font("Century Gothic", 14F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.FromArgb(30, 40, 60);
-            lblTitulo.Location = new Point(25, 12);
+            lblTitulo.Location = new Point(3, 7);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(250, 34);
             lblTitulo.TabIndex = 0;
@@ -68,7 +68,7 @@ namespace SenacBuy.UI
             // 
             lblSubtitulo.Font = new Font("Segoe UI", 9F);
             lblSubtitulo.ForeColor = Color.Gray;
-            lblSubtitulo.Location = new Point(25, 48);
+            lblSubtitulo.Location = new Point(3, 41);
             lblSubtitulo.Name = "lblSubtitulo";
             lblSubtitulo.Size = new Size(250, 20);
             lblSubtitulo.TabIndex = 1;
@@ -84,14 +84,13 @@ namespace SenacBuy.UI
             txtBuscaUsuario.FillColor = Color.FromArgb(245, 247, 250);
             txtBuscaUsuario.FocusedState.BorderColor = Color.FromArgb(0, 123, 204);
             txtBuscaUsuario.Font = new Font("Segoe UI", 9.5F);
-            txtBuscaUsuario.Location = new Point(281, 21);
+            txtBuscaUsuario.Location = new Point(242, 21);
             txtBuscaUsuario.Name = "txtBuscaUsuario";
             txtBuscaUsuario.PlaceholderText = "🔍  Pesquisar por nome ou e-mail...";
             txtBuscaUsuario.SelectedText = "";
             txtBuscaUsuario.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtBuscaUsuario.Size = new Size(388, 40);
+            txtBuscaUsuario.Size = new Size(241, 40);
             txtBuscaUsuario.TabIndex = 2;
-       
             // 
             // btnNovoUsuario
             // 
@@ -102,13 +101,12 @@ namespace SenacBuy.UI
             btnNovoUsuario.FillColor = Color.FromArgb(0, 123, 204);
             btnNovoUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNovoUsuario.ForeColor = Color.White;
-            btnNovoUsuario.Location = new Point(675, 21);
+            btnNovoUsuario.Location = new Point(489, 21);
             btnNovoUsuario.Name = "btnNovoUsuario";
             btnNovoUsuario.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnNovoUsuario.Size = new Size(145, 40);
             btnNovoUsuario.TabIndex = 3;
             btnNovoUsuario.Text = "+ Novo Usuário";
-      
             // 
             // btnEditarUsuario
             // 
@@ -119,10 +117,10 @@ namespace SenacBuy.UI
             btnEditarUsuario.FillColor = Color.FromArgb(255, 165, 0);
             btnEditarUsuario.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnEditarUsuario.ForeColor = Color.White;
-            btnEditarUsuario.Location = new Point(826, 21);
+            btnEditarUsuario.Location = new Point(640, 21);
             btnEditarUsuario.Name = "btnEditarUsuario";
             btnEditarUsuario.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnEditarUsuario.Size = new Size(100, 40);
+            btnEditarUsuario.Size = new Size(77, 40);
             btnEditarUsuario.TabIndex = 4;
             btnEditarUsuario.Text = "✏️ Editar";
             // 
@@ -135,10 +133,10 @@ namespace SenacBuy.UI
             btnExcluirUsuario.FillColor = Color.FromArgb(220, 60, 60);
             btnExcluirUsuario.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnExcluirUsuario.ForeColor = Color.White;
-            btnExcluirUsuario.Location = new Point(932, 21);
+            btnExcluirUsuario.Location = new Point(723, 21);
             btnExcluirUsuario.Name = "btnExcluirUsuario";
             btnExcluirUsuario.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnExcluirUsuario.Size = new Size(100, 40);
+            btnExcluirUsuario.Size = new Size(77, 40);
             btnExcluirUsuario.TabIndex = 5;
             btnExcluirUsuario.Text = "🗑️ Excluir";
             // 
@@ -150,7 +148,7 @@ namespace SenacBuy.UI
             panelConteudo.Location = new Point(0, 80);
             panelConteudo.Name = "panelConteudo";
             panelConteudo.Padding = new Padding(20, 15, 20, 20);
-            panelConteudo.Size = new Size(1060, 560);
+            panelConteudo.Size = new Size(807, 588);
             panelConteudo.TabIndex = 0;
             // 
             // dgvUsuarios
@@ -181,7 +179,7 @@ namespace SenacBuy.UI
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(1020, 525);
+            dgvUsuarios.Size = new Size(767, 553);
             dgvUsuarios.TabIndex = 0;
             // 
             // ucUsuarios
@@ -192,7 +190,7 @@ namespace SenacBuy.UI
             Controls.Add(panelConteudo);
             Controls.Add(panelHeader);
             Name = "ucUsuarios";
-            Size = new Size(1060, 640);
+            Size = new Size(807, 668);
             panelHeader.ResumeLayout(false);
             panelConteudo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();

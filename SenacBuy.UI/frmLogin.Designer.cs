@@ -47,6 +47,7 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lklCadastrar = new LinkLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2BorderlessForm2 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -178,6 +179,12 @@
             guna2HtmlLabel2.TabIndex = 6;
             guna2HtmlLabel2.Text = "Faça seu login para continuar";
             // 
+            // guna2BorderlessForm2
+            // 
+            guna2BorderlessForm2.ContainerControl = this;
+            guna2BorderlessForm2.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessForm2.TransparentWhileDrag = true;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,6 +198,7 @@
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
@@ -208,5 +216,6 @@
         private LinkLabel lklCadastrar;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
     }
 }
