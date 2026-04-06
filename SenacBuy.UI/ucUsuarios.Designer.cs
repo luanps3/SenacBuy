@@ -25,9 +25,9 @@ namespace SenacBuy.UI
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelHeader = new Panel();
+            txtBuscaUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             lblTitulo = new Label();
             lblSubtitulo = new Label();
-            txtBuscaUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             btnNovoUsuario = new Guna.UI2.WinForms.Guna2Button();
             btnEditarUsuario = new Guna.UI2.WinForms.Guna2Button();
             btnExcluirUsuario = new Guna.UI2.WinForms.Guna2Button();
@@ -54,6 +54,25 @@ namespace SenacBuy.UI
             panelHeader.Size = new Size(807, 80);
             panelHeader.TabIndex = 1;
             // 
+            // txtBuscaUsuario
+            // 
+            txtBuscaUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtBuscaUsuario.BorderColor = Color.FromArgb(200, 210, 225);
+            txtBuscaUsuario.BorderRadius = 8;
+            txtBuscaUsuario.CustomizableEdges = customizableEdges1;
+            txtBuscaUsuario.DefaultText = "";
+            txtBuscaUsuario.FillColor = Color.FromArgb(245, 247, 250);
+            txtBuscaUsuario.FocusedState.BorderColor = Color.FromArgb(0, 123, 204);
+            txtBuscaUsuario.Font = new Font("Segoe UI", 9.5F);
+            txtBuscaUsuario.Location = new Point(242, 21);
+            txtBuscaUsuario.Name = "txtBuscaUsuario";
+            txtBuscaUsuario.PlaceholderText = "🔍  Pesquisar por nome ou e-mail...";
+            txtBuscaUsuario.SelectedText = "";
+            txtBuscaUsuario.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtBuscaUsuario.Size = new Size(241, 40);
+            txtBuscaUsuario.TabIndex = 2;
+            txtBuscaUsuario.TextChanged += txtBuscaUsuario_TextChanged;
+            // 
             // lblTitulo
             // 
             lblTitulo.Font = new Font("Century Gothic", 14F, FontStyle.Bold);
@@ -73,24 +92,6 @@ namespace SenacBuy.UI
             lblSubtitulo.Size = new Size(250, 20);
             lblSubtitulo.TabIndex = 1;
             lblSubtitulo.Text = "Gerencie os usuários e acessos do sistema";
-            // 
-            // txtBuscaUsuario
-            // 
-            txtBuscaUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtBuscaUsuario.BorderColor = Color.FromArgb(200, 210, 225);
-            txtBuscaUsuario.BorderRadius = 8;
-            txtBuscaUsuario.CustomizableEdges = customizableEdges1;
-            txtBuscaUsuario.DefaultText = "";
-            txtBuscaUsuario.FillColor = Color.FromArgb(245, 247, 250);
-            txtBuscaUsuario.FocusedState.BorderColor = Color.FromArgb(0, 123, 204);
-            txtBuscaUsuario.Font = new Font("Segoe UI", 9.5F);
-            txtBuscaUsuario.Location = new Point(242, 21);
-            txtBuscaUsuario.Name = "txtBuscaUsuario";
-            txtBuscaUsuario.PlaceholderText = "🔍  Pesquisar por nome ou e-mail...";
-            txtBuscaUsuario.SelectedText = "";
-            txtBuscaUsuario.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtBuscaUsuario.Size = new Size(241, 40);
-            txtBuscaUsuario.TabIndex = 2;
             // 
             // btnNovoUsuario
             // 

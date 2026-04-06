@@ -23,10 +23,10 @@ namespace SenacBuy.UI
         {
             InitializeComponent(); // Inicializa componentes gerados pelo Designer
             ConfigurarInterface(); // Configura colunas do DataGridView e tamanho das linhas
-
-
+            Load += async (s, e) => await CarregarUsuariosAsync(); // Carrega usuários ao carregar o controle
         }
 
+        // Configura colunas do DataGridView e tamanho das linhas
         private void ConfigurarInterface()
         {
             // Aumenta altura da linha para acomodar imagens de perfil
@@ -52,7 +52,57 @@ namespace SenacBuy.UI
             dgvUsuarios.Columns["colEmail"]!.FillWeight = 200;
         }
 
-        // Configura colunas do DataGridView e tamanho das linhas
+        public async Task CarregarUsuariosAsync(string filtro = "")
+        {
+            if (_usuarios.Count == 0 || string.IsNullOrEmpty(filtro))
+                _usuarios = await _usuarioService.ListarUsuariosAsync();
+
+            AtualizarGrid(_usuarios, filtro);
+
+        }
+
+        private void AtualizarGrid(List<UsuarioDto> lista, string filtro = "")
+        {
+            dgvUsuarios.Rows.Clear();
+
+            var exibidos = string.IsNullOrWhiteSpace(filtro) ? lista : lista.Where(
+                usuario =>
+                usuario.Nome.Contains(filtro, StringComparison.OrdinalIgnoreCase) ||
+                usuario.Email.Contains(filtro, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            foreach (var usuario in exibidos)
+            {
+                int rowIndex = dgvUsuarios.Rows.Add(null, usuario.Id, usuario.Nome, usuario.Email);
+                _ = CarregarImagemAsync(rowIndex, usuario.FotoPerfil); // Carrega imagem de forma assíncrona para não travar a UI e ignora erros de carregamento (ex: sem imagem, erro de rede)
+            }
+
+        }
+
+
+
+        private void txtBuscaUsuario_TextChanged(object sender, EventArgs e)
+        {
+            AtualizarGrid(_usuarios, txtBuscaUsuario.Text);
+        }
+
+        private async Task CarregarImagemAsync(int rowIndex, string? caminhoRelativo)
+        {
+            if (string.IsNullOrEmpty(caminhoRelativo)) return; // Sem imagem, sai
+            try
+            {
+                // Constrói URL para a imagem a partir do baseUrl configurado
+                var url = $"{ApiClientService.ApiBaseUrl.TrimEnd('/')}/api/imagens/{caminhoRelativo}";
+                using var stream = await ApiClientService.Cliente.GetStreamAsync(url);
+                var img = System.Drawing.Image.FromStream(stream);
+
+                // Se a linha ainda existir, coloca a imagem na célula específica
+                if (dgvUsuarios.Rows.Count > rowIndex)
+                    dgvUsuarios.Rows[rowIndex].Cells["colFoto"].Value = img;
+            }
+            catch { /* Ignora erro de carregamento (ex: 404, sem rede) */ }
+        }
+
 
     }
+
 }
