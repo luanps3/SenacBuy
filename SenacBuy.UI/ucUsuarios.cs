@@ -102,7 +102,10 @@ namespace SenacBuy.UI
             catch { /* Ignora erro de carregamento (ex: 404, sem rede) */ }
         }
 
-
+        private void btnNovoUsuario_Click(object sender, EventArgs e)
+        {
+            (this.FindForm() as frmPrincipal)?.Navegar(new ucNovoUsuario());
+        }
     }
 
 }

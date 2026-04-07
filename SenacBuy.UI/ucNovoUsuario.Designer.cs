@@ -74,7 +74,7 @@
             panelForm.Controls.Add(txtSenha);
             panelForm.Controls.Add(btnCancelar);
             panelForm.Controls.Add(btnSalvar);
-            panelForm.Location = new Point(3, 155);
+            panelForm.Location = new Point(3, 96);
             panelForm.Name = "panelForm";
             panelForm.Size = new Size(790, 360);
             panelForm.TabIndex = 2;
@@ -107,6 +107,7 @@
             btnSelecionarImagem.Size = new Size(150, 40);
             btnSelecionarImagem.TabIndex = 1;
             btnSelecionarImagem.Text = "Selecionar Foto";
+            btnSelecionarImagem.Click += btnSelecionarImagem_Click;
             // 
             // lblNome
             // 
@@ -195,6 +196,7 @@
             btnCancelar.Size = new Size(140, 45);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnSalvar
             // 
@@ -210,6 +212,7 @@
             btnSalvar.Size = new Size(140, 45);
             btnSalvar.TabIndex = 9;
             btnSalvar.Text = "Salvar Usuário";
+            btnSalvar.Click += this.btnSalvar_Click;
             // 
             // panelHeader
             // 

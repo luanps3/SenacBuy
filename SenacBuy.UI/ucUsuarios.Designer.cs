@@ -108,6 +108,7 @@ namespace SenacBuy.UI
             btnNovoUsuario.Size = new Size(145, 40);
             btnNovoUsuario.TabIndex = 3;
             btnNovoUsuario.Text = "+ Novo Usuário";
+            btnNovoUsuario.Click += btnNovoUsuario_Click;
             // 
             // btnEditarUsuario
             // 

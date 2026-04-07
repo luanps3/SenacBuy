@@ -73,7 +73,7 @@
             // 
             txtEmail.BorderRadius = 10;
             txtEmail.CustomizableEdges = customizableEdges3;
-            txtEmail.DefaultText = "";
+            txtEmail.DefaultText = "admin@senac.br";
             txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtEmail.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -93,7 +93,7 @@
             // 
             txtSenha.BorderRadius = 10;
             txtSenha.CustomizableEdges = customizableEdges5;
-            txtSenha.DefaultText = "";
+            txtSenha.DefaultText = "1234";
             txtSenha.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSenha.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtSenha.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -108,6 +108,7 @@
             txtSenha.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtSenha.Size = new Size(191, 36);
             txtSenha.TabIndex = 3;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // guna2BorderlessForm1
             // 
@@ -145,6 +146,7 @@
             guna2CircleButton1.Size = new Size(28, 29);
             guna2CircleButton1.TabIndex = 2;
             guna2CircleButton1.Text = "x";
+            guna2CircleButton1.Click += guna2CircleButton1_Click;
             // 
             // guna2HtmlLabel1
             // 

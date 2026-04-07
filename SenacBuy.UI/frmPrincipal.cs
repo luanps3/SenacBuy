@@ -41,6 +41,6 @@ namespace SenacBuy.UI
             panelContainer.Controls.Add(uc);
         }
 
-       
+       public void Navegar(UserControl control) => LoadUserControl(control);
     }
 }
