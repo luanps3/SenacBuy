@@ -1,31 +1,16 @@
-﻿namespace SenacBuy.UI
+namespace SenacBuy.UI
 {
     partial class ucNovoUsuario
     {
-        /// <summary> 
-        /// Variável de designer necessária.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Limpar os recursos que estão sendo usados.
-        /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Designer de Componentes
-
-        /// <summary> 
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
-        /// </summary>
         private void InitializeComponent()
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -42,6 +27,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            panelHeader = new Panel();
+            lblTitulo = new Label();
+            lblSubtitulo = new Label();
             panelForm = new Panel();
             picFoto = new Guna.UI2.WinForms.Guna2PictureBox();
             btnSelecionarImagem = new Guna.UI2.WinForms.Guna2Button();
@@ -53,13 +41,42 @@
             txtSenha = new Guna.UI2.WinForms.Guna2TextBox();
             btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             btnSalvar = new Guna.UI2.WinForms.Guna2Button();
-            panelHeader = new Panel();
-            lblTitulo = new Label();
-            lblSubtitulo = new Label();
+            panelHeader.SuspendLayout();
             panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
-            panelHeader.SuspendLayout();
             SuspendLayout();
+            // 
+            // panelHeader
+            // 
+            panelHeader.BackColor = Color.White;
+            panelHeader.Controls.Add(lblTitulo);
+            panelHeader.Controls.Add(lblSubtitulo);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Padding = new Padding(25, 0, 25, 0);
+            panelHeader.Size = new Size(1060, 80);
+            panelHeader.TabIndex = 1;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Font = new Font("Century Gothic", 14F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(30, 40, 60);
+            lblTitulo.Location = new Point(25, 12);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(400, 34);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "👤  Novo Usuário";
+            // 
+            // lblSubtitulo
+            // 
+            lblSubtitulo.Font = new Font("Segoe UI", 9F);
+            lblSubtitulo.ForeColor = Color.Gray;
+            lblSubtitulo.Location = new Point(25, 48);
+            lblSubtitulo.Name = "lblSubtitulo";
+            lblSubtitulo.Size = new Size(400, 20);
+            lblSubtitulo.TabIndex = 1;
+            lblSubtitulo.Text = "Preencha os dados do novo usuário";
             // 
             // panelForm
             // 
@@ -74,10 +91,10 @@
             panelForm.Controls.Add(txtSenha);
             panelForm.Controls.Add(btnCancelar);
             panelForm.Controls.Add(btnSalvar);
-            panelForm.Location = new Point(3, 96);
+            panelForm.Location = new Point(25, 100);
             panelForm.Name = "panelForm";
-            panelForm.Size = new Size(790, 360);
-            panelForm.TabIndex = 2;
+            panelForm.Size = new Size(800, 360);
+            panelForm.TabIndex = 0;
             // 
             // picFoto
             // 
@@ -212,70 +229,37 @@
             btnSalvar.Size = new Size(140, 45);
             btnSalvar.TabIndex = 9;
             btnSalvar.Text = "Salvar Usuário";
-            btnSalvar.Click += this.btnSalvar_Click;
-            // 
-            // panelHeader
-            // 
-            panelHeader.BackColor = Color.White;
-            panelHeader.Controls.Add(lblTitulo);
-            panelHeader.Controls.Add(lblSubtitulo);
-            panelHeader.Dock = DockStyle.Top;
-            panelHeader.Location = new Point(0, 0);
-            panelHeader.Name = "panelHeader";
-            panelHeader.Padding = new Padding(25, 0, 25, 0);
-            panelHeader.Size = new Size(807, 80);
-            panelHeader.TabIndex = 3;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.Font = new Font("Century Gothic", 14F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.FromArgb(30, 40, 60);
-            lblTitulo.Location = new Point(25, 12);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(400, 34);
-            lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "👤  Novo Usuário";
-            // 
-            // lblSubtitulo
-            // 
-            lblSubtitulo.Font = new Font("Segoe UI", 9F);
-            lblSubtitulo.ForeColor = Color.Gray;
-            lblSubtitulo.Location = new Point(25, 48);
-            lblSubtitulo.Name = "lblSubtitulo";
-            lblSubtitulo.Size = new Size(400, 20);
-            lblSubtitulo.TabIndex = 1;
-            lblSubtitulo.Text = "Preencha os dados do novo usuário";
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // ucNovoUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(245, 247, 250);
             Controls.Add(panelForm);
             Controls.Add(panelHeader);
             Name = "ucNovoUsuario";
-            Size = new Size(807, 668);
+            Size = new Size(1060, 640);
+            panelHeader.ResumeLayout(false);
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picFoto).EndInit();
-            panelHeader.ResumeLayout(false);
             ResumeLayout(false);
         }
 
-        #endregion
-
-        private Panel panelForm;
-        private Guna.UI2.WinForms.Guna2PictureBox picFoto;
-        private Guna.UI2.WinForms.Guna2Button btnSelecionarImagem;
-        private Label lblNome;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblSubtitulo;
+        private System.Windows.Forms.Panel panelForm;
+        private System.Windows.Forms.Label lblNome;
         private Guna.UI2.WinForms.Guna2TextBox txtNome;
-        private Label lblEmail;
+        private System.Windows.Forms.Label lblEmail;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
-        private Label lblSenha;
+        private System.Windows.Forms.Label lblSenha;
         private Guna.UI2.WinForms.Guna2TextBox txtSenha;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2Button btnSalvar;
-        private Panel panelHeader;
-        private Label lblTitulo;
-        private Label lblSubtitulo;
+        private Guna.UI2.WinForms.Guna2PictureBox picFoto;
+        private Guna.UI2.WinForms.Guna2Button btnSelecionarImagem;
     }
 }

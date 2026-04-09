@@ -9,7 +9,7 @@ namespace SenacBuy.API.Controllers;
 /// Fornece endpoint de consulta para popular ComboBoxes no cliente.
 /// </summary>
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/categorias")]
 public class CategoriaController : ControllerBase
 {
     private readonly SenacBuyDbContext _db;

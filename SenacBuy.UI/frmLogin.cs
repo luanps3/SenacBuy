@@ -1,18 +1,30 @@
-using SenacBuy.UI.Services;
+﻿using System;
+using System.Windows.Forms;
+using SenacBuy.UI.Services.Models;
 
 namespace SenacBuy.UI
 {
+    /// <summary>
+    /// Tela de autenticação do SenacBuy.
+    /// O login é validado via API (POST api/usuario/login).
+    /// Inclui botão "Cadastrar-se" que abre frmCadastroUsuario.
+    /// </summary>
     public partial class frmLogin : Form
     {
-        private readonly UsuarioApiService _usuarioApiService = new();
+        private readonly UsuarioApiService _usuarioService = new();
 
         public frmLogin()
         {
             InitializeComponent();
         }
 
+        // ──────────────────────────────────────────────────────────────────────────────
+        // ENTRAR
+        // ──────────────────────────────────────────────────────────────────────────────
+
         private async void btnEntrar_Click(object sender, EventArgs e)
         {
+            // Validação: campos obrigatórios
             if (string.IsNullOrWhiteSpace(txtEmail.Text) ||
                 string.IsNullOrWhiteSpace(txtSenha.Text))
             {
@@ -26,26 +38,29 @@ namespace SenacBuy.UI
 
             try
             {
-                var resultado = await _usuarioApiService.LoginAsync(
+                // Chama a API para autenticar — POST api/usuario/login
+                var resultado = await _usuarioService.LoginAsync(
                     email: txtEmail.Text.Trim(),
                     senha: txtSenha.Text);
 
                 if (resultado == null)
                 {
-                    // Mensagem de erro já exibida pelo usuarioApiService
+                    // Mensagem de erro já exibida pelo UsuarioApiService
                     return;
                 }
 
                 if (resultado.Sucesso)
                 {
-                    var principal = new frmPrincipal();
+                    // Login bem-sucedido — abre o formulário principal
+                    var principal = new frmPrincipal(resultado.Nome, resultado.FotoPerfil);
                     principal.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show($"Acesso negado. \n{resultado.Mensagem}",
-                        "Autenticação falhou",
+                    MessageBox.Show(
+                        $"Acesso negado.\n{resultado.Mensagem}",
+                        "Autenticação Falhou",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
@@ -55,46 +70,34 @@ namespace SenacBuy.UI
                 btnEntrar.Enabled = true;
                 btnEntrar.Text = "Entrar";
             }
-
-
         }
 
-        private void lklCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        // ──────────────────────────────────────────────────────────────────────────────
+        // CADASTRAR-SE
+        // ──────────────────────────────────────────────────────────────────────────────
+
+        private void btnCadastrarSe_Click(object sender, EventArgs e)
         {
-            frmCadastroUsuario form = new();
-            form.ShowDialog();
+            // Abre o formulário de cadastro como diálogo modal
+            using var frm = new frmCadastroUsuario();
+            frm.ShowDialog(this);
+            // Após fechar o cadastro, o usuário retorna para esta tela de login
         }
 
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        // ──────────────────────────────────────────────────────────────────────────────
+        // FECHAR APLICAÇÃO
+        // ──────────────────────────────────────────────────────────────────────────────
+
+        // Encerra toda a aplicação ao fechar o login
+        protected override void OnFormClosed(FormClosedEventArgs e)
         {
+            base.OnFormClosed(e);
             Application.Exit();
         }
 
-        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        private void btnFechar_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (txtSenha.Text == string.Empty)
-                {
-                    txtSenha.Focus();
-                }
-                else
-                {
-                    e.Handled = true;
-                    e.SuppressKeyPress = true; // previne bip ou comportamento padrão
-                    btnEntrar.PerformClick();  // aciona o clique do botão (mesmo que seja Guna2Button)
-                }
-            }
-        }
-
-        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.Handled = true;
-                e.SuppressKeyPress = true; // previne bip ou comportamento padrão
-                btnEntrar.PerformClick();  // aciona o clique do botão (mesmo que seja Guna2Button)
-            }
+            Application.Exit();
         }
     }
 }
