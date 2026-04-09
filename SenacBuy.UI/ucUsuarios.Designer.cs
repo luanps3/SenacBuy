@@ -33,6 +33,7 @@ namespace SenacBuy.UI
             btnExcluirUsuario = new Guna.UI2.WinForms.Guna2Button();
             panelConteudo = new Panel();
             dgvUsuarios = new DataGridView();
+            mdMessage = new Guna.UI2.WinForms.Guna2MessageDialog();
             panelHeader.SuspendLayout();
             panelConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
@@ -125,6 +126,7 @@ namespace SenacBuy.UI
             btnEditarUsuario.Size = new Size(77, 40);
             btnEditarUsuario.TabIndex = 4;
             btnEditarUsuario.Text = "✏️ Editar";
+            btnEditarUsuario.Click += btnEditarUsuario_Click;
             // 
             // btnExcluirUsuario
             // 
@@ -141,6 +143,7 @@ namespace SenacBuy.UI
             btnExcluirUsuario.Size = new Size(77, 40);
             btnExcluirUsuario.TabIndex = 5;
             btnExcluirUsuario.Text = "🗑️ Excluir";
+            btnExcluirUsuario.Click += btnExcluirUsuario_Click;
             // 
             // panelConteudo
             // 
@@ -184,6 +187,15 @@ namespace SenacBuy.UI
             dgvUsuarios.Size = new Size(767, 553);
             dgvUsuarios.TabIndex = 0;
             // 
+            // mdMessage
+            // 
+            mdMessage.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            mdMessage.Caption = null;
+            mdMessage.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            mdMessage.Parent = null;
+            mdMessage.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
+            mdMessage.Text = "Exemplo de mensagem";
+            // 
             // ucUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,5 +220,6 @@ namespace SenacBuy.UI
         private Guna.UI2.WinForms.Guna2Button btnEditarUsuario;
         private Guna.UI2.WinForms.Guna2Button btnExcluirUsuario;
         private System.Windows.Forms.DataGridView dgvUsuarios;
+        private Guna.UI2.WinForms.Guna2MessageDialog mdMessage;
     }
 }

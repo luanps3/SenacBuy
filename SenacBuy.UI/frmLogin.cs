@@ -67,7 +67,34 @@ namespace SenacBuy.UI
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
+        }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtSenha.Text == string.Empty)
+                {
+                    txtSenha.Focus();
+                }
+                else
+                {
+                    e.Handled = true;
+                    e.SuppressKeyPress = true; // previne bip ou comportamento padrão
+                    btnEntrar.PerformClick();  // aciona o clique do botão (mesmo que seja Guna2Button)
+                }
+            }
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true; // previne bip ou comportamento padrão
+                btnEntrar.PerformClick();  // aciona o clique do botão (mesmo que seja Guna2Button)
+            }
         }
     }
 }

@@ -41,6 +41,11 @@ namespace SenacBuy.UI
             panelContainer.Controls.Add(uc);
         }
 
-       public void Navegar(UserControl control) => LoadUserControl(control);
+        public void Navegar(UserControl control) => LoadUserControl(control);
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

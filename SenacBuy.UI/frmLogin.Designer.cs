@@ -88,6 +88,7 @@
             txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtEmail.Size = new Size(191, 36);
             txtEmail.TabIndex = 3;
+            txtEmail.KeyDown += txtEmail_KeyDown;
             // 
             // txtSenha
             // 
@@ -109,6 +110,7 @@
             txtSenha.Size = new Size(191, 36);
             txtSenha.TabIndex = 3;
             txtSenha.UseSystemPasswordChar = true;
+            txtSenha.KeyDown += txtSenha_KeyDown;
             // 
             // guna2BorderlessForm1
             // 
