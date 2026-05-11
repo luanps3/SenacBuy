@@ -1,0 +1,79 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Entrar";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<h1>Bem-vindo de volta</h1>
+<p class="auth-subtitle">Acesse sua conta para continuar</p>
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+        @TempData["Sucesso"]
+    </div>
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div>
+            @foreach (var erro in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div>@erro.ErrorMessage</div>
+            }
+        </div>
+    </div>
+}
+
+<form asp-controller="Account" asp-action="Login" method="post" novalidate>
+    @Html.AntiForgeryToken()
+
+    @if (!string.IsNullOrEmpty(Model.ReturnUrl))
+    {
+        <input type="hidden" asp-for="ReturnUrl" />
+    }
+
+    <div class="form-group">
+        <label asp-for="Email">E-mail</label>
+        <input asp-for="Email"
+               id="login-email"
+               class="form-control @(ViewData.ModelState["Email"]?.Errors.Count > 0 ? "input-error" : "")"
+               type="email"
+               placeholder="seu@email.com"
+               autocomplete="email"
+               autofocus />
+        <span asp-validation-for="Email" class="field-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Senha">Senha</label>
+        <input asp-for="Senha"
+               id="login-senha"
+               class="form-control @(ViewData.ModelState["Senha"]?.Errors.Count > 0 ? "input-error" : "")"
+               type="password"
+               placeholder="••••••••"
+               autocomplete="current-password" />
+        <span asp-validation-for="Senha" class="field-error"></span>
+    </div>
+
+    <button type="submit" id="btn-entrar" class="btn-primary">
+        Entrar
+    </button>
+
+    <div class="auth-divider">ou</div>
+
+    <a asp-controller="Account" asp-action="Registrar" id="btn-cadastrar" class="btn-secondary">
+        Cadastrar-se
+    </a>
+</form>
+
+<p class="auth-footer-link">
+    &copy; @DateTime.Now.Year SenacBuy — Todos os direitos reservados
+</p>

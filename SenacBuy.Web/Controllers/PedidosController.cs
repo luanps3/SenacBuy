@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SenacBuy.Web.Models;
 using SenacBuy.Web.Services;
 
 namespace SenacBuy.Web.Controllers;
 
+[Authorize]
 public class PedidosController : Controller
 {
     private readonly PedidoApiService  _pedidoService;

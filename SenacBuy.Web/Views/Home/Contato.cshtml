@@ -1,0 +1,179 @@
+@{
+    ViewData["Title"] = "Contato";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<style>
+    .contato-hero {
+        background: linear-gradient(135deg, #f0f7ff 0%, #e8f3fd 100%);
+        padding: 80px 5% 60px;
+        text-align: center;
+    }
+    .contato-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 48px;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+    .contato-info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+    .contato-info-icon {
+        width: 44px; height: 44px;
+        background: var(--primary-light);
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+    .contato-info-title { font-weight: 700; margin-bottom: 4px; }
+    .contato-info-text { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
+    .contato-form {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 36px 32px;
+        box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .contato-form h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: var(--text);
+    }
+    .form-group {
+        margin-bottom: 18px;
+    }
+    .form-group label {
+        display: block;
+        font-size: .78rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin-bottom: 6px;
+    }
+    .form-control {
+        width: 100%;
+        padding: .75rem 1rem;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        font-family: var(--font);
+        font-size: .9rem;
+        color: var(--text);
+        background: #fff;
+        transition: border-color .15s, box-shadow .15s;
+        outline: none;
+    }
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(19,127,236,.1);
+    }
+    textarea.form-control { resize: vertical; min-height: 110px; }
+    .alert-info {
+        background: var(--primary-light);
+        color: var(--primary);
+        border: 1px solid rgba(19,127,236,.2);
+        border-radius: 10px;
+        padding: .75rem 1rem;
+        font-size: .875rem;
+        margin-top: 16px;
+    }
+    @@media (max-width: 768px) {
+        .contato-layout { grid-template-columns: 1fr; }
+    }
+</style>
+
+<!-- Hero -->
+<div class="contato-hero">
+    <p class="pub-section-label">Fale Conosco</p>
+    <h1 class="pub-section-title">Entre em contato</h1>
+    <p class="pub-section-subtitle" style="margin:0 auto;">
+        Tem dúvidas, sugestões ou quer saber mais sobre o SenacBuy? Envie uma mensagem.
+    </p>
+</div>
+
+<!-- Conteúdo -->
+<section class="pub-section">
+    <div class="contato-layout">
+        <!-- Informações de contato -->
+        <div>
+            <div class="contato-info-item">
+                <div class="contato-info-icon">📧</div>
+                <div>
+                    <p class="contato-info-title">E-mail</p>
+                    <p class="contato-info-text">contato@senacbuy.com.br</p>
+                </div>
+            </div>
+            <div class="contato-info-item">
+                <div class="contato-info-icon">🏫</div>
+                <div>
+                    <p class="contato-info-title">Instituição</p>
+                    <p class="contato-info-text">SENAC — Serviço Nacional de Aprendizagem Comercial</p>
+                </div>
+            </div>
+            <div class="contato-info-item">
+                <div class="contato-info-icon">💻</div>
+                <div>
+                    <p class="contato-info-title">Projeto</p>
+                    <p class="contato-info-text">SenacBuy — Sistema de Gestão de Vendas<br/>Projeto de Conclusão de Curso</p>
+                </div>
+            </div>
+            <div class="contato-info-item">
+                <div class="contato-info-icon">⏰</div>
+                <div>
+                    <p class="contato-info-title">Horário de Atendimento</p>
+                    <p class="contato-info-text">Segunda a Sexta<br/>08h às 18h</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário -->
+        <div class="contato-form">
+            <h3>Envie sua mensagem</h3>
+            <div class="form-group">
+                <label for="contato-nome">Nome completo</label>
+                <input id="contato-nome" class="form-control" type="text" placeholder="Seu nome" />
+            </div>
+            <div class="form-group">
+                <label for="contato-email">E-mail</label>
+                <input id="contato-email" class="form-control" type="email" placeholder="seu@email.com" />
+            </div>
+            <div class="form-group">
+                <label for="contato-assunto">Assunto</label>
+                <input id="contato-assunto" class="form-control" type="text" placeholder="Ex: Dúvida sobre o sistema" />
+            </div>
+            <div class="form-group">
+                <label for="contato-mensagem">Mensagem</label>
+                <textarea id="contato-mensagem" class="form-control" placeholder="Descreva sua dúvida ou sugestão..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width:100%" id="btn-enviar-contato">
+                Enviar mensagem
+            </button>
+            <div class="alert-info" id="contato-feedback" style="display:none">
+                ✅ Mensagem enviada com sucesso! Em breve entraremos em contato.
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+<script>
+document.getElementById('btn-enviar-contato').addEventListener('click', function() {
+    const nome     = document.getElementById('contato-nome').value.trim();
+    const email    = document.getElementById('contato-email').value.trim();
+    const mensagem = document.getElementById('contato-mensagem').value.trim();
+    if (!nome || !email || !mensagem) {
+        alert('Por favor, preencha os campos obrigatórios: Nome, E-mail e Mensagem.');
+        return;
+    }
+    document.getElementById('contato-feedback').style.display = 'block';
+    this.disabled = true;
+    this.textContent = 'Enviado ✓';
+});
+</script>
+}

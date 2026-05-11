@@ -1,0 +1,127 @@
+@{
+    ViewData["Title"] = "Sobre";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<style>
+    .sobre-hero {
+        background: linear-gradient(135deg, #f0f7ff 0%, #e8f3fd 100%);
+        padding: 80px 5% 60px;
+        text-align: center;
+    }
+    .sobre-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+    .sobre-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px 28px;
+        box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .sobre-card-icon {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+    .sobre-card h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text);
+    }
+    .sobre-card p {
+        font-size: .9rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+    }
+    .sobre-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 32px;
+    }
+    .sobre-tech-tag {
+        padding: 6px 16px;
+        background: var(--primary-light);
+        color: var(--primary);
+        border-radius: 99px;
+        font-size: .8rem;
+        font-weight: 700;
+    }
+</style>
+
+<!-- Hero da página Sobre -->
+<div class="sobre-hero">
+    <p class="pub-section-label">Sobre o SenacBuy</p>
+    <h1 class="pub-section-title">Um sistema criado para simplificar a gestão</h1>
+    <p class="pub-section-subtitle" style="margin:0 auto 2rem;">
+        O SenacBuy é uma plataforma de gestão empresarial desenvolvida com as
+        tecnologias mais modernas do ecossistema .NET.
+    </p>
+</div>
+
+<!-- Conteúdo principal -->
+<section class="pub-section">
+    <div class="sobre-grid">
+        <div class="sobre-card">
+            <div class="sobre-card-icon">🎯</div>
+            <h3>Nossa Missão</h3>
+            <p>Fornecer uma solução completa e acessível de gestão de vendas, permitindo que empresas controlem clientes, produtos e pedidos de forma eficiente e integrada.</p>
+        </div>
+        <div class="sobre-card">
+            <div class="sobre-card-icon">🏗️</div>
+            <h3>Arquitetura</h3>
+            <p>Desenvolvido com arquitetura em camadas (Domain, Application, Infrastructure, API, Web e UI), garantindo separação de responsabilidades e manutenibilidade.</p>
+        </div>
+        <div class="sobre-card">
+            <div class="sobre-card-icon">🔧</div>
+            <h3>Tecnologias</h3>
+            <p>Construído com .NET 10, ASP.NET Core MVC, Entity Framework Core, SQL Server e WinForms, seguindo os princípios SOLID e Clean Architecture.</p>
+        </div>
+        <div class="sobre-card">
+            <div class="sobre-card-icon">📡</div>
+            <h3>API REST</h3>
+            <p>API documentada com Swagger/OpenAPI, consumida tanto pela aplicação Web quanto pelo cliente Desktop WinForms, garantindo consistência de dados.</p>
+        </div>
+        <div class="sobre-card">
+            <div class="sobre-card-icon">🔒</div>
+            <h3>Segurança</h3>
+            <p>Autenticação por Cookie Authentication com claims, senhas criptografadas com BCrypt e proteção de rotas com atributo [Authorize].</p>
+        </div>
+        <div class="sobre-card">
+            <div class="sobre-card-icon">🎓</div>
+            <h3>Projeto Acadêmico</h3>
+            <p>Desenvolvido como projeto de conclusão de curso no SENAC, aplicando as melhores práticas aprendidas durante a formação em desenvolvimento de sistemas.</p>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+        <p class="pub-section-label">Stack Tecnológica</p>
+        <div class="sobre-tech">
+            <span class="sobre-tech-tag">.NET 10</span>
+            <span class="sobre-tech-tag">ASP.NET Core MVC</span>
+            <span class="sobre-tech-tag">Entity Framework Core</span>
+            <span class="sobre-tech-tag">SQL Server</span>
+            <span class="sobre-tech-tag">WinForms</span>
+            <span class="sobre-tech-tag">Cookie Authentication</span>
+            <span class="sobre-tech-tag">Swagger / OpenAPI</span>
+            <span class="sobre-tech-tag">Clean Architecture</span>
+            <span class="sobre-tech-tag">REST API</span>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="pub-cta">
+    <h2 class="pub-cta-title">Quer experimentar?</h2>
+    <p class="pub-cta-sub">Crie sua conta e explore todos os recursos do SenacBuy gratuitamente.</p>
+    <div class="pub-cta-actions">
+        <a asp-controller="Account" asp-action="Registrar" class="btn btn-white btn-lg">Criar conta</a>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-ghost btn-lg">Entrar</a>
+    </div>
+</section>

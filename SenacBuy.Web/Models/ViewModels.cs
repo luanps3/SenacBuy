@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SenacBuy.Web.Models;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -80,4 +82,46 @@ public class ErrorViewModel
 {
     public string? RequestId { get; set; }
     public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+}
+
+// ── Autenticação ──────────────────────────────────────────────────────────────
+
+public class LoginViewModel
+{
+    [Required(ErrorMessage = "E-mail obrigatório")]
+    [EmailAddress(ErrorMessage = "E-mail inválido")]
+    public string Email { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Senha obrigatória")]
+    public string Senha { get; set; } = string.Empty;
+
+    public string? ReturnUrl { get; set; }
+}
+
+public class RegistrarViewModel
+{
+    [Required(ErrorMessage = "Nome obrigatório")]
+    public string Nome { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "E-mail obrigatório")]
+    [EmailAddress(ErrorMessage = "E-mail inválido")]
+    public string Email { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Senha obrigatória")]
+    [MinLength(6, ErrorMessage = "Mínimo 6 caracteres")]
+    public string Senha { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Confirmação obrigatória")]
+    [Compare("Senha", ErrorMessage = "As senhas não coincidem")]
+    public string ConfirmarSenha { get; set; } = string.Empty;
+}
+
+public class LoginResponseViewModel
+{
+    public int     Id         { get; set; }
+    public string  Nome       { get; set; } = string.Empty;
+    public string  Email      { get; set; } = string.Empty;
+    public bool    Sucesso    { get; set; }
+    public string  Mensagem   { get; set; } = string.Empty;
+    public string? FotoPerfil { get; set; }
 }

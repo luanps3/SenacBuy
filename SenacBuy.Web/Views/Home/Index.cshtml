@@ -1,8 +1,194 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Início";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- ── Hero ─────────────────────────────────────────────────────────────────── -->
+<section class="pub-hero" id="home">
+    <div class="pub-hero-content">
+        <div class="pub-hero-badge">
+            <span class="dot"></span>
+            Sistema de Gestão Empresarial
+        </div>
+
+        <h1 class="pub-hero-title">
+            Gerencie suas vendas<br />
+            com <em>eficiência</em> total
+        </h1>
+
+        <p class="pub-hero-subtitle">
+            Sistema completo de controle de vendas com clientes, produtos,
+            pedidos e relatórios — tudo em um só lugar, de forma simples e segura.
+        </p>
+
+        <div class="pub-hero-actions">
+            <a asp-controller="Account" asp-action="Registrar" class="btn btn-primary btn-lg" id="hero-comecar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                Começar Agora
+            </a>
+            <a asp-controller="Home" asp-action="Sobre" class="btn btn-outline btn-lg" id="hero-saibamais">
+                Saiba Mais
+            </a>
+        </div>
+
+        <div class="pub-hero-stats">
+            <div>
+                <div class="pub-hero-stat-value">100%</div>
+                <div class="pub-hero-stat-label">Web-based</div>
+            </div>
+            <div>
+                <div class="pub-hero-stat-value">4</div>
+                <div class="pub-hero-stat-label">Módulos</div>
+            </div>
+            <div>
+                <div class="pub-hero-stat-value">API</div>
+                <div class="pub-hero-stat-label">REST integrada</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Mockup -->
+    <div class="pub-hero-visual">
+        <div class="dash-mockup">
+            <div class="dash-mockup-header">
+                <span class="dash-mockup-dot"></span>
+                <span class="dash-mockup-dot"></span>
+                <span class="dash-mockup-dot"></span>
+                <span class="dash-mockup-title">SenacBuy — Dashboard</span>
+            </div>
+            <div class="dash-mockup-body">
+                <div class="dash-card-mini">
+                    <div class="dash-card-mini-label">Total de Vendas</div>
+                    <div class="dash-card-mini-value blue">R$ 84.200</div>
+                </div>
+                <div class="dash-card-mini">
+                    <div class="dash-card-mini-label">Clientes</div>
+                    <div class="dash-card-mini-value green">248</div>
+                </div>
+                <div class="dash-card-mini">
+                    <div class="dash-card-mini-label">Produtos</div>
+                    <div class="dash-card-mini-value orange">1.340</div>
+                </div>
+                <div class="dash-card-mini">
+                    <div class="dash-card-mini-label">Pedidos</div>
+                    <div class="dash-card-mini-value red">37</div>
+                </div>
+                <div class="dash-chart-mini">
+                    <div class="dash-card-mini-label">Pedidos por Mês</div>
+                    <div class="dash-chart-bars">
+                        @foreach (var h in new[] { 30, 55, 40, 70, 50, 85, 60, 95, 72, 88, 64, 100 })
+                        {
+                            <div class="dash-chart-bar" style="height:@(h)%"></div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Features ──────────────────────────────────────────────────────────────── -->
+<section class="pub-section" id="recursos">
+    <div class="pub-section-center">
+        <p class="pub-section-label">Funcionalidades</p>
+        <h2 class="pub-section-title">Tudo que você precisa para gerenciar</h2>
+        <p class="pub-section-subtitle">
+            Módulos integrados que cobrem todo o ciclo de vendas da sua empresa,
+            do cadastro ao relatório final.
+        </p>
+    </div>
+
+    <div class="pub-features-grid">
+        <div class="pub-feature-card">
+            <div class="pub-feature-icon">👥</div>
+            <h3 class="pub-feature-title">Gestão de Clientes</h3>
+            <p class="pub-feature-desc">Cadastre, pesquise e gerencie todos os seus clientes com histórico completo de compras e informações de contato.</p>
+        </div>
+        <div class="pub-feature-card">
+            <div class="pub-feature-icon">📦</div>
+            <h3 class="pub-feature-title">Controle de Produtos</h3>
+            <p class="pub-feature-desc">Catálogo completo com fotos, preços, categorias e controle de estoque. Organize seus produtos de forma profissional.</p>
+        </div>
+        <div class="pub-feature-card">
+            <div class="pub-feature-icon">🛒</div>
+            <h3 class="pub-feature-title">Gestão de Pedidos</h3>
+            <p class="pub-feature-desc">Crie, acompanhe e gerencie pedidos com status em tempo real — Pendente, Finalizado ou Cancelado.</p>
+        </div>
+        <div class="pub-feature-card">
+            <div class="pub-feature-icon">📊</div>
+            <h3 class="pub-feature-title">Dashboard Inteligente</h3>
+            <p class="pub-feature-desc">Visão geral do negócio com gráficos de vendas mensais, totais e indicadores-chave de desempenho.</p>
+        </div>
+        <div class="pub-feature-card">
+            <div class="pub-feature-icon">🔗</div>
+            <h3 class="pub-feature-title">API REST</h3>
+            <p class="pub-feature-desc">API documentada com Swagger para integração com outros sistemas. Acesso seguro via endpoints padronizados.</p>
+        </div>
+        <div class="pub-feature-card">
+            <div class="pub-feature-icon">🖥️</div>
+            <h3 class="pub-feature-title">Multiplataforma</h3>
+            <p class="pub-feature-desc">Disponível como aplicação Web e Desktop (WinForms), compartilhando a mesma API e base de dados.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── Benefits ──────────────────────────────────────────────────────────────── -->
+<section class="pub-section pub-benefits">
+    <div class="pub-section-center">
+        <p class="pub-section-label">Vantagens</p>
+        <h2 class="pub-section-title">Por que escolher o SenacBuy?</h2>
+        <p class="pub-section-subtitle">
+            Desenvolvido com as melhores práticas de arquitetura de software, garantindo
+            qualidade, segurança e escalabilidade.
+        </p>
+    </div>
+
+    <div class="pub-benefits-grid">
+        <div class="pub-benefit-item">
+            <div class="pub-benefit-icon">✨</div>
+            <h3 class="pub-benefit-title">Interface Moderna</h3>
+            <p class="pub-benefit-desc">Design limpo e intuitivo com foco na experiência do usuário, sem curva de aprendizado.</p>
+        </div>
+        <div class="pub-benefit-item">
+            <div class="pub-benefit-icon">🔒</div>
+            <h3 class="pub-benefit-title">Segurança</h3>
+            <p class="pub-benefit-desc">Autenticação por cookie segura, senhas criptografadas e proteção de rotas em todas as páginas.</p>
+        </div>
+        <div class="pub-benefit-item">
+            <div class="pub-benefit-icon">⚡</div>
+            <h3 class="pub-benefit-title">Alta Performance</h3>
+            <p class="pub-benefit-desc">Construído com .NET 10 e ASP.NET Core MVC, garantindo respostas rápidas e escalabilidade.</p>
+        </div>
+        <div class="pub-benefit-item">
+            <div class="pub-benefit-icon">🌐</div>
+            <h3 class="pub-benefit-title">Web + Desktop</h3>
+            <p class="pub-benefit-desc">Acesse pelo navegador ou pelo aplicativo WinForms — tudo integrado à mesma API.</p>
+        </div>
+        <div class="pub-benefit-item">
+            <div class="pub-benefit-icon">📱</div>
+            <h3 class="pub-benefit-title">Responsivo</h3>
+            <p class="pub-benefit-desc">Layout adaptável a qualquer dispositivo: desktop, tablet ou smartphone.</p>
+        </div>
+        <div class="pub-benefit-item">
+            <div class="pub-benefit-icon">🛠️</div>
+            <h3 class="pub-benefit-title">Fácil Integração</h3>
+            <p class="pub-benefit-desc">API REST documentada com Swagger para integração com ERP, e-commerce ou sistemas externos.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────────── -->
+<section class="pub-cta">
+    <h2 class="pub-cta-title">Pronto para começar?</h2>
+    <p class="pub-cta-sub">Crie sua conta gratuitamente e tenha acesso completo ao sistema.</p>
+    <div class="pub-cta-actions">
+        <a asp-controller="Account" asp-action="Registrar" class="btn btn-white btn-lg" id="cta-criar-conta">
+            Criar conta gratuita
+        </a>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-ghost btn-lg" id="cta-entrar">
+            Já tenho conta — Entrar
+        </a>
+    </div>
+</section>

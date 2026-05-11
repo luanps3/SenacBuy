@@ -1,0 +1,113 @@
+@model RegistrarViewModel
+@{
+    ViewData["Title"] = "Criar Conta";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<h1>Criar conta</h1>
+<p class="auth-subtitle">Preencha os dados para se cadastrar</p>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div>
+            @foreach (var erro in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <div>@erro.ErrorMessage</div>
+            }
+        </div>
+    </div>
+}
+
+<form asp-controller="Account" asp-action="Registrar" method="post"
+      enctype="multipart/form-data" novalidate>
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Nome">Nome completo</label>
+        <input asp-for="Nome"
+               id="reg-nome"
+               class="form-control @(ViewData.ModelState["Nome"]?.Errors.Count > 0 ? "input-error" : "")"
+               type="text"
+               placeholder="Seu nome"
+               autocomplete="name"
+               autofocus />
+        <span asp-validation-for="Nome" class="field-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">E-mail</label>
+        <input asp-for="Email"
+               id="reg-email"
+               class="form-control @(ViewData.ModelState["Email"]?.Errors.Count > 0 ? "input-error" : "")"
+               type="email"
+               placeholder="seu@email.com"
+               autocomplete="email" />
+        <span asp-validation-for="Email" class="field-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Senha">Senha</label>
+        <input asp-for="Senha"
+               id="reg-senha"
+               class="form-control @(ViewData.ModelState["Senha"]?.Errors.Count > 0 ? "input-error" : "")"
+               type="password"
+               placeholder="Mínimo 6 caracteres"
+               autocomplete="new-password" />
+        <span asp-validation-for="Senha" class="field-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmarSenha">Confirmar senha</label>
+        <input asp-for="ConfirmarSenha"
+               id="reg-confirmar"
+               class="form-control @(ViewData.ModelState["ConfirmarSenha"]?.Errors.Count > 0 ? "input-error" : "")"
+               type="password"
+               placeholder="Repita a senha"
+               autocomplete="new-password" />
+        <span asp-validation-for="ConfirmarSenha" class="field-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Foto de perfil <span style="font-weight:400;text-transform:none;">(opcional)</span></label>
+        <div class="file-input-wrapper">
+            <input type="file" name="foto" id="reg-foto" accept="image/*" />
+            <p class="file-input-text" id="file-label">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <strong>Escolher arquivo</strong> ou arraste aqui
+            </p>
+        </div>
+    </div>
+
+    <button type="submit" id="btn-cadastrar" class="btn-primary">
+        Cadastrar
+    </button>
+
+    <div class="auth-divider">ou</div>
+
+    <a asp-controller="Account" asp-action="Login" id="btn-cancelar" class="btn-secondary">
+        Cancelar — Já tenho conta
+    </a>
+</form>
+
+<p class="auth-footer-link">
+    &copy; @DateTime.Now.Year SenacBuy — Todos os direitos reservados
+</p>
+
+@section Scripts {
+<script>
+// Exibir nome do arquivo selecionado
+document.getElementById('reg-foto').addEventListener('change', function () {
+    const label = document.getElementById('file-label');
+    label.innerHTML = this.files[0]
+        ? `<strong>${this.files[0].name}</strong>`
+        : `<strong>Escolher arquivo</strong> ou arraste aqui`;
+});
+</script>
+}
